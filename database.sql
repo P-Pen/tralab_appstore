@@ -24,7 +24,8 @@ CREATE TABLE apps (
     download_url VARCHAR(255),
     download_count INT DEFAULT 0,
     like_count INT DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_recommended TINYINT(1) DEFAULT 0
 );
 
 CREATE TABLE app_likes (
@@ -42,6 +43,7 @@ CREATE TABLE app_comments (
     user_id VARCHAR(255) NOT NULL,
     comment TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    rating INT DEFAULT NULL,
     FOREIGN KEY (app_id) REFERENCES apps(app_id) ON DELETE CASCADE
 );
 
@@ -50,5 +52,12 @@ CREATE TABLE pv_logs (
     page VARCHAR(255) NOT NULL,
     ip_address VARCHAR(50),
     user_agent TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 创建分类表
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

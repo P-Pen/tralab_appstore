@@ -14,9 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $version = $_POST['version'];
     $size = $_POST['size'];
     $downloadUrl = $_POST['download_url'];
+    $isRecommended = $_POST['is_recommended'];
 
-    $stmt = $pdo->prepare("UPDATE apps SET name = ?, category = ?, description = ?, developer = ?, version = ?, size = ?, download_url = ? WHERE id = ?");
-    $stmt->execute([$name, $category, $description, $developer, $version, $size, $downloadUrl, $appId]);
+    $stmt = $pdo->prepare("UPDATE apps SET name = ?, category = ?, description = ?, developer = ?, version = ?, size = ?, download_url = ?, is_recommended = ? WHERE id = ?");
+    $stmt->execute([$name, $category, $description, $developer, $version, $size, $downloadUrl, $isRecommended, $appId]);
 
     header('Location: index.php');
     exit;
@@ -28,6 +29,10 @@ $app = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$app) {
     die('应用不存在');
 }
+
+// 获取分类列表
+$stmt = $pdo->query("SELECT * FROM categories");
+$categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +53,13 @@ if (!$app) {
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">分类</label>
-            <input type="text" class="form-control" id="category" name="category" value="<?= htmlspecialchars($app['category']) ?>" required>
+            <select class="form-control" id="category" name="category">
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?= htmlspecialchars($category['name']) ?>" <?= $app['category'] === $category['name'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($category['name']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">描述</label>
@@ -69,6 +80,13 @@ if (!$app) {
         <div class="mb-3">
             <label for="download_url" class="form-label">下载链接</label>
             <input type="url" class="form-control" id="download_url" name="download_url" value="<?= htmlspecialchars($app['download_url']) ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="is_recommended" class="form-label">推荐</label>
+            <select class="form-control" id="is_recommended" name="is_recommended">
+                <option value="0" <?= !$app['is_recommended'] ? 'selected' : '' ?>>否</option>
+                <option value="1" <?= $app['is_recommended'] ? 'selected' : '' ?>>是</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">保存</button>
         <a href="index.php" class="btn btn-secondary">取消</a>

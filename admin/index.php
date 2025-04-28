@@ -17,6 +17,8 @@
             <th>名称</th>
             <th>下载量</th>
             <th>点赞量</th>
+            <th>Hankmi 专区</th>
+            <th>推荐</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -31,6 +33,8 @@
                 <td><?= htmlspecialchars($app['name']) ?></td>
                 <td><?= htmlspecialchars($app['download_count']) ?></td>
                 <td><?= htmlspecialchars($app['like_count']) ?></td>
+                <td><?= $app['category'] === 'hankmi' ? '是' : '否' ?></td>
+                <td><?= $app['is_recommended'] ? '是' : '否' ?></td>
                 <td>
                     <a href="edit_app.php?id=<?= $app['id'] ?>" class="btn btn-warning btn-sm">编辑</a>
                     <a href="delete_app.php?id=<?= $app['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('确定删除此应用吗？');">删除</a>
