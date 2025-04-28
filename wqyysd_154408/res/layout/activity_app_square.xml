@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ll_loading_app_information" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:id="@id/iv_load_failed" android:background="@drawable/icon_load_failed" android:visibility="gone" android:layout_width="80.0dip" android:layout_height="80.0dip" />
+            <TextView android:id="@id/tv_retry_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-2.0dip" android:text="@string/failed_to_load_app_information" />
+            <Button android:textSize="12.0sp" android:id="@id/btn_retry" android:background="@drawable/icon_button_blue_full_2" android:visibility="gone" android:layout_width="80.0dip" android:layout_height="33.0dip" android:layout_marginTop="8.0dip" android:text="@string/retry" />
+            <ImageView android:id="@id/iv_loading_anim" android:background="@drawable/animation_list_loading_anim" android:layout_width="30.0dip" android:layout_height="30.0dip" />
+            <TextView android:gravity="center_horizontal" android:id="@id/tv_loading_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/loading_app_information" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="horizontal" android:id="@id/ll_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3.0dip">
+                    <ImageView android:layout_width="17.0dip" android:layout_height="17.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="6.0dip" android:src="@drawable/icon_arrow_back" />
+                    <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/app_details_page" />
+                </LinearLayout>
+                <TextClock android:textSize="15.0sp" android:textColor="@color/white" android:gravity="right" android:id="@id/tc_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_marginRight="10.0dip" android:layout_centerHorizontal="true" android:format12Hour="hh:mm" android:format24Hour="HH:mm" />
+            </LinearLayout>
+            <ScrollView android:id="@id/sv_layout_body" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:orientation="vertical" android:id="@id/ll_layout_body" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="12.0dip" android:paddingHorizontal="5.0dip">
+                    <LinearLayout android:orientation="horizontal" android:id="@id/BasicInformation" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip">
+                        <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_AppLogo" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/icon_app_logo_loading" />
+                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip">
+                            <TextView android:textSize="16.0sp" android:textColor="#fffffefe" android:id="@id/tv_AppName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AppName" />
+                            <TextView android:textSize="12.0sp" android:textColor="#ffcccccc" android:id="@id/tv_AppDeveloper" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AppDeveloper" />
+                            <TextView android:textSize="12.0sp" android:textColor="#ffcccccc" android:id="@id/tv_app_download_url" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="tv_app_download_url" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/DownloadNumberAndLikeNumber" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dip">
+                        <ImageView android:id="@id/iv_DownloadNumber" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_marginLeft="1.0dip" android:layout_marginTop="1.0dip" android:src="@drawable/icon_download_number" />
+                        <TextView android:textSize="12.0sp" android:textColor="#fffffefe" android:id="@id/tv_DownloadNumber" android:layout_width="35.0dip" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="0" />
+                        <LinearLayout android:orientation="horizontal" android:id="@id/ll_LikeNumber" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <ImageView android:id="@id/iv_LikeNumber" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_marginTop="1.0dip" android:src="@drawable/icon_like_number" />
+                            <TextView android:textSize="12.0sp" android:textColor="#fffffefe" android:id="@id/tv_LikeNumber" android:layout_width="35.0dip" android:layout_height="wrap_content" android:layout_marginLeft="1.0dip" android:layout_marginTop="2.0dip" android:text="0" />
+                        </LinearLayout>
+                        <LinearLayout android:gravity="right" android:orientation="horizontal" android:id="@id/ll_history_version" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="1.0dip">
+                            <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/history_version" />
+                            <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:src="@drawable/icon_arrow_history_version" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_download_option" android:background="@drawable/icon_button_download_background" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip">
+                        <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:layout_marginLeft="15.0dip" android:src="@drawable/icon_download" />
+                        <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/download_and_install" />
+                    </LinearLayout>
+                    <TextView android:id="@id/tv_progress_bar_max_width" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip" />
+                    <FrameLayout android:id="@id/fl_downloading_progress" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip">
+                        <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/icon_button_download_background" android:scaleType="fitXY" />
+                        <TextView android:id="@id/tv_download_progress_bar" android:background="#ff40aef8" android:layout_width="0.0dip" android:layout_height="fill_parent" />
+                        <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/icon_four_corner_black" android:scaleType="fitXY" />
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:layout_marginLeft="15.0dip" android:src="@drawable/icon_download_white" />
+                            <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/downloading" />
+                            <LinearLayout android:gravity="center|right" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="15.0dip">
+                                <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:id="@id/tv_donloading_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0%" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                    <FrameLayout android:id="@id/fl_installing" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip">
+                        <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/icon_button_download_background" android:scaleType="fitXY" />
+                        <TextView android:background="#ff40aef8" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                        <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/icon_four_corner_black" android:scaleType="fitXY" />
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:layout_marginLeft="15.0dip" android:src="@drawable/icon_installing_white" />
+                            <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/installing" />
+                        </LinearLayout>
+                    </FrameLayout>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_installed" android:background="@drawable/icon_button_open_uninstall_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_open" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:layout_marginLeft="15.0dip" android:src="@drawable/icon_open" />
+                            <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/open" />
+                        </LinearLayout>
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_uninstall" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:layout_marginLeft="10.0dip" android:src="@drawable/icon_uninstall" />
+                            <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/uninstall" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_update" android:background="@drawable/icon_button_open_uninstall_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_update_btn" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:layout_marginLeft="15.0dip" android:src="@drawable/icon_check_for_updates" />
+                            <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/update" />
+                        </LinearLayout>
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_uninstall_2" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:layout_marginLeft="10.0dip" android:src="@drawable/icon_uninstall" />
+                            <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/uninstall" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:id="@id/AppInfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="12.0dip">
+                        <LinearLayout android:orientation="vertical" android:id="@id/AppInfoText" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/devices_adapt" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_version" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_size" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_update_time" />
+                        </LinearLayout>
+                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_toRightOf="@id/AppInfoText">
+                            <LinearLayout android:orientation="horizontal" android:id="@id/ll_devices_adapt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-1.0dip">
+                                <ImageView android:id="@id/iv_devices_adapt" android:layout_width="18.0dip" android:layout_height="18.0dip" android:foreground="#40000000" android:src="@drawable/icon_wear_os" />
+                                <TextView android:id="@id/tv_devices_adapt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:text="Wear OS" />
+                            </LinearLayout>
+                            <TextView android:id="@id/tv_app_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0.0" />
+                            <TextView android:id="@id/tv_app_apk_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0MB" />
+                            <TextView android:id="@id/tv_app_update_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1970.01.01" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:id="@id/AppUpdateLogLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_update_log" />
+                        <TextView android:textSize="12.0sp" android:id="@id/tv_app_update_log" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AppUpdateLog" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:id="@id/AppIntroduceLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="5.0dip" android:layout_marginHorizontal="5.0dip">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_introduction" />
+                        <TextView android:textSize="12.0sp" android:id="@id/tv_app_introduce" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AppIntroduction" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:id="@id/AppScreenshotLayout" android:paddingBottom="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/app_screenshot" />
+                        <HorizontalScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_0" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_1" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_2" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_3" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_4" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_5" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_6" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                                <com.etralab.appstoreforandroid.MyImageView android:id="@id/iv_screen_shot_7" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginRight="10.0dip" android:foreground="?android:selectableItemBackground" android:src="@drawable/icon_app_screenshot_loading" />
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+        <ImageView android:layout_gravity="center" android:id="@id/iv_anim_like" android:visibility="gone" android:layout_width="128.0dip" android:layout_height="128.0dip" android:src="@drawable/animation_like" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

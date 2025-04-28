@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ll_help_for_choose_app_install_method" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/choose_apk_install_method" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip">
+            <ImageView android:layout_width="16.0dip" android:layout_height="16.0dip" android:src="@drawable/icon_help_small_grey" />
+            <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="@string/which_should_i_choose" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:id="@id/ll_use_package_installer" android:layout_width="wrap_content" android:layout_height="35.0dip">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:id="@id/iv_use_package_installer" android:layout_width="19.0dip" android:layout_height="19.0dip" android:src="@drawable/icon_radio_button_background" />
+                    <TextView android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/use_package_installer_to_install_apk" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:id="@id/ll_use_wlan_adb" android:layout_width="wrap_content" android:layout_height="35.0dip">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:id="@id/iv_use_wlan_adb" android:layout_width="19.0dip" android:layout_height="19.0dip" android:src="@drawable/icon_radio_button_background" />
+                    <TextView android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/use_wlan_debug_to_install_apk" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <Button android:textSize="14.0sp" android:id="@id/btn_choose" android:background="@drawable/icon_button_blue_full" android:layout_width="84.0dip" android:layout_height="30.0dip" android:layout_marginTop="10.0dip" android:text="@string/ok" />
+</LinearLayout>
