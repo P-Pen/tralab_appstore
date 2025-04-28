@@ -2,46 +2,23 @@ API 调用分析：
 
 1. CheckUpdateActivity.java
    - URL: http://106.53.152.67/etralab_appstore_android/php/check_update_activity/get_latest_version_data.php
-     请求方式: HttpURLConnection
-     请求参数: 无明确参数（需进一步分析代码逻辑）
-     返回参数: JSON 格式，包含最新版本信息。
-
-   - URL: http://106.53.152.67/etralab_appstore_android/pv/check_update_activity/pv.php
-     请求方式: HttpURLConnection
-     请求参数: 无明确参数（需进一步分析代码逻辑）
-     返回参数: 未知（需进一步分析）。
-
-2. CheckedUpdateActivity.java
-   - URL: http://106.53.152.67/etralab_appstore_android/php/checked_update_activity/get_update_data.php
-     请求方式: HttpPost
-     请求参数: 包含一个名为 appId 的参数，其值从 Intent 中获取。
-     返回参数: JSON 数据，包含以下字段：
-       - pkg_name: 应用包名。
-       - name: 应用名称。
-       - name_en: 应用英文名称。
-       - version: 应用版本号。
-       - download_size: 下载大小。
-       - update_time: 更新时间。
-       - update_log: 更新日志。
-       - download_url: 下载链接。
-
-   - URL: http://106.53.152.67/etralab_appstore_android/php/checked_update_activity/update_app_download_num.php
      请求方式: HttpURLConnection (GET)
      请求参数: 无明确参数。
-     返回参数: 未处理返回值，仅发送请求以记录下载次数。
+     返回参数: 最新版本的版本号，用于与当前版本进行比较。
 
-   - URL: http://106.53.152.67/etralab_appstore_android/pv/checked_update_activity/pv.php
+   - URL: http://106.53.152.67/etralab_appstore_android/pv/check_update_activity/pv.php
      请求方式: HttpURLConnection (GET)
      请求参数: 无明确参数。
      返回参数: 未处理返回值，仅发送请求以记录页面访问量。
 
-3. MainActivity.java
+2. MainActivity.java
    - URL: http://106.53.152.67/etralab_appstore_android/json/version_check.json
-     请求方式: HttpURLConnection
-     请求参数: 无明确参数（需进一步分析代码逻辑）。
-     返回参数: JSON 格式，包含版本检查信息。
+     请求方式: HttpURLConnection (GET)
+     请求参数: 无明确参数。
+     返回参数: JSON 数据，包含以下字段：
+       - build_17: 版本检查标志，值为 1 或 0。
 
-4. AppActivity.java
+3. AppActivity.java
    - URL: http://106.53.152.67/etralab_appstore_android/php/app_activity/get_app_data.php
      请求方式: HttpPost
      请求参数: 包含一个名为 appId 的参数，其值从 Intent 中获取。
@@ -80,7 +57,7 @@ API 调用分析：
      请求参数: 无明确参数。
      返回参数: 未处理返回值，仅发送请求以记录下载页面访问量。
 
-5. SearchResultActivity.java
+4. SearchResultActivity.java
    - URL: http://106.53.152.67/etralab_appstore_android/php/search_result_activity/get_apps_data.php
      请求方式: HttpPost
      请求参数: 包含一个名为 searchText 的参数，其值从 Intent 中获取。
@@ -97,13 +74,24 @@ API 调用分析：
      请求参数: 无明确参数。
      返回参数: 未处理返回值，仅发送请求以记录页面访问量。
 
-6. DeveloperAppActivity.java
+5. DeveloperAppActivity.java
    - URL: http://106.53.152.67/etralab_appstore_android/php/developer_app_activity/get_developer_apps_data.php
      请求方式: HttpPost
-     请求参数: 未知（需进一步分析）。
-     返回参数: JSON 格式，包含开发者应用数据。
+     请求参数: 包含一个名为 developerName 的参数，其值从 Intent 中获取。
+     返回参数: JSON 数据，包含以下字段：
+       - id: 应用 ID。
+       - name: 应用名称。
+       - logo_url: 应用图标 URL。
+       - download_num: 下载次数。
+       - like_num: 点赞次数。
+       - os_type: 操作系统类型。
 
-7. ClassificationActivity.java
+   - URL: http://106.53.152.67/etralab_appstore_android/pv/developer_app_activity/pv.php
+     请求方式: HttpURLConnection (GET)
+     请求参数: 无明确参数。
+     返回参数: 未处理返回值，仅发送请求以记录页面访问量。
+
+6. ClassificationActivity.java
    - URL: http://106.53.152.67/etralab_appstore_android/php/classification_activity/get_download_ranking_apps_data.php
      请求方式: HttpURLConnection (GET)
      请求参数: 无明确参数。
@@ -159,7 +147,7 @@ API 调用分析：
        - like_num: 点赞次数。
        - os_type: 操作系统类型。
 
-8. HomeFragment.java
+7. HomeFragment.java
    - URL: http://106.53.152.67/etralab_appstore_android/php/home_fragment/get_notice_data.php
      请求方式: HttpURLConnection (GET)
      请求参数: 无明确参数。
@@ -201,6 +189,43 @@ API 调用分析：
        - os_type: 操作系统类型。
 
    - URL: http://106.53.152.67/etralab_appstore_android/pv/home_fragment/pv.php
+     请求方式: HttpURLConnection (GET)
+     请求参数: 无明确参数。
+     返回参数: 未处理返回值，仅发送请求以记录页面访问量。
+
+8. ForceUpdateActivity.java
+   - URL: http://106.53.152.67/etralab_appstore_android/php/checked_update_activity/get_update_data.php
+     请求方式: HttpPost
+     请求参数: 包含一个名为 appId 的参数，其值从 Intent 中获取。
+     返回参数: JSON 数据，包含以下字段：
+       - pkg_name: 应用包名。
+       - name: 应用名称。
+       - name_en: 应用英文名称。
+       - version: 版本号。
+       - download_size: 下载大小。
+       - update_time: 更新时间。
+       - update_log: 更新日志。
+       - download_url: 下载链接。
+
+   - URL: http://106.53.152.67/etralab_appstore_android/php/checked_update_activity/update_app_download_num.php
+     请求方式: HttpURLConnection (GET)
+     请求参数: 无明确参数。
+     返回参数: 未处理返回值，仅发送请求以记录下载次数。
+
+   - URL: http://106.53.152.67/etralab_appstore_android/pv/force_update_activity/pv.php
+     请求方式: HttpURLConnection (GET)
+     请求参数: 无明确参数。
+     返回参数: 未处理返回值，仅发送请求以记录页面访问量。
+
+9. SettingsActivity.java
+   - URL: http://106.53.152.67/etralab_appstore_android/php/check_update_activity/get_latest_version_data.php
+     请求方式: HttpURLConnection (GET)
+     请求参数: 无明确参数。
+     返回参数: JSON 数据，包含以下字段：
+       - version_code: 最新版本的版本号。
+
+10. ScreenshotActivity.java
+   - URL: http://106.53.152.67/etralab_appstore_android/pv/screenshot_activity/pv.php
      请求方式: HttpURLConnection (GET)
      请求参数: 无明确参数。
      返回参数: 未处理返回值，仅发送请求以记录页面访问量。
