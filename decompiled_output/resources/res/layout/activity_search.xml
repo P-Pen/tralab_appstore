@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="18sp" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/search"/>
+            <TextView android:background="#1f1f1f" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="4dp"/>
+        </LinearLayout>
+        <LinearLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:id="@+id/ll_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3dp">
+                <ImageView android:layout_width="17dp" android:layout_height="17dp" android:layout_marginLeft="5dp" android:layout_marginTop="6dp" android:src="@drawable/icon_arrow_back"/>
+                <TextView android:textSize="15sp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/search"/>
+            </LinearLayout>
+            <TextClock android:textSize="15sp" android:textColor="@color/white" android:gravity="right" android:id="@+id/tc_time" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginRight="10dp" android:layout_centerHorizontal="true" android:format12Hour="hh:mm" android:format24Hour="HH:mm"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/ll_layout_body" android:paddingLeft="35dp" android:paddingRight="35dp" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="35dp">
+            <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@+id/ll_search_box" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+                <LinearLayout android:gravity="center_vertical" android:background="@drawable/icon_search_box_gray" android:layout_width="match_parent" android:layout_height="35dp" android:foreground="?android:attr/selectableItemBackground">
+                    <LinearLayout android:gravity="center_vertical" android:id="@+id/ll_search" android:layout_width="wrap_content" android:layout_height="match_parent">
+                        <ImageView android:layout_width="17dp" android:layout_height="17dp" android:layout_marginLeft="15dp" android:layout_marginRight="6dp" android:src="@drawable/icon_search_gray"/>
+                    </LinearLayout>
+                    <EditText android:textSize="15sp" android:textColorHint="#bbbbbb" android:id="@+id/et_search_box" android:background="@null" android:layout_width="match_parent" android:layout_height="match_parent" android:hint="@string/search" android:singleLine="true" android:imeOptions="actionSearch"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

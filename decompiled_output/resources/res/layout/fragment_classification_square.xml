@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="15sp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginTop="4dp" android:text="@string/classification"/>
+            <TextClock android:textSize="15sp" android:textColor="@color/white" android:gravity="right" android:id="@+id/tc_time" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginRight="16dp" android:layout_centerHorizontal="true" android:format12Hour="hh:mm" android:format24Hour="HH:mm"/>
+        </LinearLayout>
+        <TextView android:background="#1f1f1f" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="4dp"/>
+        <ScrollView android:id="@+id/sv_layout_body" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="18dp" android:layout_marginTop="4dp" android:layout_marginRight="18dp" android:layout_marginHorizontal="18dp">
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_ranking" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_dlranking"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/download_ranking" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_newArrival" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_newarrival"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/new_arrival" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_hot" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_hot"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/recommendation" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_exercise_health" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_exercise_health"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/exercise_and_health" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_socialContact" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_contact"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/social_contact" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_productivity" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_productivity"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/productivity" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_news" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_news_reading"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/news_reading" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_map" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_map"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/map_navigation" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_travelling" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_travelling"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/travelling" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_financial" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_financial"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/financial_management" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_image_processing" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_image_processing"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/image_processing" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_file_management" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_file_management"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/file_management" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_web_browser" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_web_browser"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/web_browser" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_input_method" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_input_method"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/input_method" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_videoAudio" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_videoaudio"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/video_and_audio" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_reading" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_reading"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/reading" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_education" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_education"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/education" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_weather" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_weather"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/weather" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_car" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_car"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/car" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_game" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_game"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/game" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_personalization" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_personalization"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/personalized_theme" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_watchFace" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_watchface"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/watch_face" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_hankmi_section" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_hankmi_section"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hankmi_section" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@+id/ll_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="32dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:src="@drawable/icon_other"/>
+                    <TextView android:textSize="16sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/other" android:layout_marginStart="10dp"/>
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:minWidth="6dp">
+                        <ImageView android:layout_width="6dp" android:layout_height="12dp" android:src="@drawable/icon_next_page"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

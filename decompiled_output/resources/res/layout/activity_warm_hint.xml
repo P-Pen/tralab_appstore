@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="18sp" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="@string/warm_hint"/>
+    <ScrollView android:id="@+id/sv_layout_body" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="12sp" android:layout_gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:text="目前，唯趣应用商店完全免费。如果您是通过其他渠道付费下载的，请立即申请退款，并向开发者举报。\10\10开发者QQ: 2873103606\10开发者邮箱: kitick@163.com" android:layout_marginHorizontal="20dp"/>
+            <LinearLayout android:gravity="center_horizontal" android:id="@+id/ll_do_not_prompt_again" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@+id/iv_do_not_prompt_again" android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/icon_checkbox_background"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3dp" android:text="不再提示"/>
+            </LinearLayout>
+            <Button android:textSize="14sp" android:layout_gravity="center_horizontal" android:id="@+id/btn_ok" android:background="@drawable/icon_button_blue_full" android:layout_width="84dp" android:layout_height="30dp" android:layout_marginTop="20dp" android:layout_marginBottom="30dp" android:text="@string/ok"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

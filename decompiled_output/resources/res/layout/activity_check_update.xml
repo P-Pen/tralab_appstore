@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:id="@+id/ll_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3dp">
+                <ImageView android:layout_width="17dp" android:layout_height="17dp" android:layout_marginLeft="8dp" android:layout_marginTop="6dp" android:src="@drawable/icon_arrow_back"/>
+                <TextView android:textSize="15sp" android:textColor="#ffffff" android:id="@+id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/check_updates"/>
+            </LinearLayout>
+            <TextClock android:textSize="15sp" android:textColor="@color/white" android:gravity="right" android:id="@+id/tc_time" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginRight="10dp" android:layout_centerHorizontal="true" android:format12Hour="hh:mm" android:format24Hour="HH:mm"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textSize="18sp" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/check_updates"/>
+        <TextView android:background="#1f1f1f" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="4dp"/>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/ll_checking_update" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@+id/iv_load_failed" android:background="@drawable/icon_load_failed" android:visibility="gone" android:layout_width="80dp" android:layout_height="80dp"/>
+        <TextView android:gravity="center_horizontal" android:id="@+id/tv_retry_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-2dp" android:text="@string/failed_to_check_for_updates"/>
+        <Button android:textSize="12sp" android:id="@+id/btn_retry" android:background="@drawable/icon_button_blue_full_2" android:visibility="gone" android:layout_width="80dp" android:layout_height="33dp" android:layout_marginTop="8dp" android:text="@string/retry"/>
+        <ImageView android:id="@+id/iv_loading_anim" android:background="@drawable/animation_list_loading_anim" android:layout_width="30dp" android:layout_height="30dp"/>
+        <TextView android:gravity="center_horizontal" android:id="@+id/tv_loading_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/checking_for_updates"/>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/ll_no_update" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@+id/iv_ok" android:background="@drawable/animation_ok" android:layout_width="60dp" android:layout_height="60dp"/>
+        <TextView android:textColor="#ffffff" android:gravity="center_horizontal" android:id="@+id/tv_no_update" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/no_updates"/>
+        <TextView android:textSize="12sp" android:gravity="center_horizontal" android:id="@+id/tv_client_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/app_name_2"/>
+        <TextView android:textSize="12sp" android:gravity="center_horizontal" android:id="@+id/tv_client_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/clientVersion"/>
+    </LinearLayout>
+</FrameLayout>

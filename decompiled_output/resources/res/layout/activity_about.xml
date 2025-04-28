@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="50dp" android:layout_height="50dp" android:layout_marginTop="30dp" android:src="@mipmap/ic_launcher"/>
+            <TextView android:textSize="16sp" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15dp" android:text="@string/app_name_2"/>
+            <TextView android:textSize="12sp" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/versionName"/>
+            <TextView android:textSize="12sp" android:layout_gravity="center_horizontal" android:id="@+id/tv_buildCode" android:layout_width="wrap_content" android:layout_height="25dp" android:text="@string/versionCode"/>
+            <TextView android:textSize="10sp" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="益软网络公司 版权所有"/>
+            <TextView android:textSize="10sp" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/copyright"/>
+            <TextView android:textSize="10sp" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:text="@string/all_rights_reserved"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center" android:orientation="vertical" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/iv_loading_anim" android:background="@drawable/animation_list_loading_anim" android:layout_width="30dp" android:layout_height="30dp" android:layout_marginTop="20dp"/>
+    <TextView android:textSize="14sp" android:textColor="#ffffff" android:id="@+id/state" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="正在安装应用..."/>
+    <TextView android:textSize="8sp" android:id="@+id/debug" android:padding="5dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>

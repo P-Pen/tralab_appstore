@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="17" android:versionName="Beta 0.18.0" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" package="com.etralab.appstoreforandroid" platformBuildVersionCode="29" platformBuildVersionName="10">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="29"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="com.android.permission.GET_INSTALLED_APPS"/>
+    <application android:theme="@android:style/Theme.DeviceDefault" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:allowBackup="true" android:supportsRtl="true" android:extractNativeLibs="false" android:usesCleartextTraffic="true" android:networkSecurityConfig="@xml/network_security_config" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:label="@string/app_name" android:name="com.etralab.appstoreforandroid.MainActivity" android:launchMode="standard"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.CheckUpdateActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.CheckedUpdateActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.SearchResultActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.SearchActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.HelpForChooseApkInstallMethodActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.InstallApkActivity"/>
+        <activity android:label="@string/app_name" android:name="com.etralab.appstoreforandroid.LauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.ClassificationActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.ScreenshotActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.RestartMainActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.NoticeActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.SupportUsWithAlipayActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.SupportUsWithWechatActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.SupportUsActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.ConnectCheckActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.DeveloperOptionActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.HelpActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.ClearDataActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.AboutActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.SettingsActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.AppActivity"/>
+        <activity android:theme="@style/ActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.DeveloperAppActivity"/>
+        <activity android:theme="@style/DisableActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.PermissionActivity"/>
+        <activity android:theme="@style/DisableActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.UserAgreementActivity"/>
+        <activity android:theme="@style/DisableActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.WarmHintActivity"/>
+        <activity android:theme="@style/DisableActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.NameChangeHintActivity"/>
+        <activity android:theme="@style/DisableActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.ChooseAppInstallMethodActivity"/>
+        <activity android:theme="@style/DisableActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.ChooseLayoutActivity"/>
+        <activity android:theme="@style/DisableActivitySwipeToDismissTheme" android:name="com.etralab.appstoreforandroid.ForceUpdateActivity"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.etralab.appstoreforandroid.FileProvider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/rc_file_path"/>
+        </provider>
+    </application>
+</manifest>

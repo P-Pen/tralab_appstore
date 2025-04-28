@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:foreground="?android:attr/selectableItemBackground">
+    <RelativeLayout android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="5dp" android:layout_marginBottom="5dp">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/ll_AppLogo" android:layout_width="40dp" android:layout_height="50dp">
+            <com.etralab.appstoreforandroid.MyImageView android:id="@+id/iv_AppLogo" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/icon_app_logo_loading"/>
+            <TextView android:id="@+id/tv_app_id" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tv_os_type" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/tv_app_json_url" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:textSize="18sp" android:ellipsize="end" android:id="@+id/tv_AppName" android:layout_width="90dp" android:layout_height="wrap_content" android:text="APP" android:maxLines="1" android:layout_marginStart="8dp" android:layout_toEndOf="@+id/ll_AppLogo"/>
+        <ImageView android:id="@+id/iv_DownloadNumber" android:layout_width="20dp" android:layout_height="20dp" android:layout_marginTop="4dp" android:src="@drawable/icon_download_number" android:layout_below="@+id/tv_AppName" android:layout_marginStart="3dp" android:layout_toEndOf="@+id/ll_AppLogo"/>
+        <TextView android:textSize="12sp" android:id="@+id/tv_DownloadNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="0" android:layout_below="@+id/tv_AppName" android:layout_toEndOf="@+id/iv_DownloadNumber"/>
+        <ImageView android:id="@+id/iv_LikeNumber" android:layout_width="20dp" android:layout_height="20dp" android:layout_marginTop="4dp" android:src="@drawable/icon_like_number" android:layout_below="@+id/tv_AppName" android:layout_marginStart="32dp" android:layout_toEndOf="@+id/iv_DownloadNumber"/>
+        <TextView android:textSize="12sp" android:id="@+id/tv_LikeNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="0" android:layout_below="@+id/tv_AppName" android:layout_toEndOf="@+id/iv_LikeNumber"/>
+        <ImageView android:id="@+id/iv_OsType" android:layout_width="20dp" android:layout_height="20dp" android:layout_marginTop="15dp" android:foreground="#40000000" android:src="@drawable/icon_wear_os" android:layout_marginStart="23dp" android:layout_toEndOf="@+id/iv_LikeNumber"/>
+    </RelativeLayout>
+</LinearLayout>

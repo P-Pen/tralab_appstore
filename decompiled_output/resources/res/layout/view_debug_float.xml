@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:id="@+id/ll_debug_float_body" android:background="#50363636" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="20dp" android:layout_marginTop="20dp" android:layout_marginRight="20dp" android:layout_marginBottom="20dp" android:layout_marginHorizontal="20dp" android:layout_marginVertical="20dp">
+        <TextView android:textSize="10sp" android:textColor="#ffffff" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Etralab Appstore Debug Panel 1.0"/>
+        <ScrollView android:id="@+id/sv_layout_body" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="8sp" android:textColor="#ffffff" android:id="@+id/tv_debug_info" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
