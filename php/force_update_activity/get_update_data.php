@@ -1,5 +1,5 @@
 <?php
-// 获取首页推荐的应用列表
+// 强制更新版本检查
 header('Content-Type: application/json');
 
 $servername = "localhost";
@@ -15,17 +15,15 @@ if ($conn->connect_error) {
     die(json_encode(["error" => "Database connection failed"]));
 }
 
-$sql = "SELECT id, name, developer, download_num, like_num FROM apps ORDER BY download_num DESC LIMIT 10";
+$sql = "SELECT version_code, update_log, download_url FROM updates ORDER BY update_time DESC LIMIT 1";
 $result = $conn->query($sql);
 
-$apps = [];
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $apps[] = $row;
-    }
+    $row = $result->fetch_assoc();
+    echo json_encode($row);
+} else {
+    echo json_encode(["error" => "No updates available"]);
 }
-
-echo json_encode(["apps" => $apps]);
 
 $conn->close();
 ?>

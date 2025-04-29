@@ -1,17 +1,29 @@
 <?php
-require_once '../db.php';
+// 获取最新版本数据
+header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $stmt = $pdo->query("SELECT version_code FROM app_versions ORDER BY created_at DESC LIMIT 1");
-    $latestVersion = $stmt->fetch(PDO::FETCH_ASSOC);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tralab_appstore";
 
-    if ($latestVersion) {
-        echo json_encode(['status' => 'ok', 'version_code' => $latestVersion['version_code']]);
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'No version data found']);
-    }
-} else {
-    http_response_code(405);
-    echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+// 创建连接
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// 检查连接
+if ($conn->connect_error) {
+    die(json_encode(["error" => "Database connection failed"]));
 }
+
+$sql = "SELECT version_code FROM updates ORDER BY update_time DESC LIMIT 1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    echo json_encode(["version_code" => $row["version_code"]]);
+} else {
+    echo json_encode(["version_code" => null]);
+}
+
+$conn->close();
 ?>

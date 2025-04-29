@@ -1,5 +1,5 @@
 <?php
-// 获取首页推荐的应用列表
+// 返回版本检查的 JSON 数据
 header('Content-Type: application/json');
 
 $servername = "localhost";
@@ -15,17 +15,10 @@ if ($conn->connect_error) {
     die(json_encode(["error" => "Database connection failed"]));
 }
 
-$sql = "SELECT id, name, developer, download_num, like_num FROM apps ORDER BY download_num DESC LIMIT 10";
-$result = $conn->query($sql);
+// 假设 build_17 是一个固定的标志位，值为 1 或 0
+$build_17 = 1; // 示例值，可以根据实际需求调整
 
-$apps = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $apps[] = $row;
-    }
-}
-
-echo json_encode(["apps" => $apps]);
+echo json_encode(["build_17" => $build_17]);
 
 $conn->close();
 ?>

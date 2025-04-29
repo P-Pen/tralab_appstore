@@ -1,17 +1,40 @@
 <?php
-require_once '../db.php';
+// 搜索应用
+header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $searchText = $_POST['searchText'] ?? '';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tralab_appstore";
 
-    $stmt = $pdo->prepare("SELECT id, name, logo_url, download_count AS download_num, like_count AS like_num, 'Android' AS os_type FROM apps WHERE name LIKE :searchText");
-    $stmt->bindValue(':searchText', "%$searchText%", PDO::PARAM_STR);
-    $stmt->execute();
+// 创建连接
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    $apps = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode(['status' => 'ok', 'apps' => $apps]);
-} else {
-    http_response_code(405);
-    echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+// 检查连接
+if ($conn->connect_error) {
+    die(json_encode(["error" => "Database connection failed"]));
 }
+
+// 获取搜索关键词
+$keyword = isset($_POST['keyword']) ? $conn->real_escape_string($_POST['keyword']) : '';
+
+if (empty($keyword)) {
+    echo json_encode(["error" => "Keyword is required"]);
+    $conn->close();
+    exit;
+}
+
+$sql = "SELECT id, name, developer, download_num, like_num FROM apps WHERE name LIKE '%$keyword%'";
+$result = $conn->query($sql);
+
+$apps = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $apps[] = $row;
+    }
+}
+
+echo json_encode(["apps" => $apps]);
+
+$conn->close();
 ?>

@@ -1,21 +1,35 @@
 <?php
-require_once '../../db.php';
+// 减少应用点赞次数
+header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $appId = $_POST['appId'] ?? null;
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tralab_appstore";
 
-    if (!$appId) {
-        echo json_encode(['status' => 'error', 'message' => 'Missing appId']);
-        exit;
-    }
+// 创建连接
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    $stmt = $pdo->prepare("UPDATE apps SET like_count = GREATEST(like_count - 1, 0) WHERE app_id = :appId");
-    $stmt->bindValue(':appId', $appId, PDO::PARAM_STR);
-    $stmt->execute();
-
-    echo json_encode(['status' => 'ok', 'message' => 'Like count decreased']);
-} else {
-    http_response_code(405);
-    echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+// 检查连接
+if ($conn->connect_error) {
+    die(json_encode(["error" => "Database connection failed"]));
 }
+
+// 获取 appId 参数
+$appId = isset($_POST['appId']) ? intval($_POST['appId']) : 0;
+
+if ($appId <= 0) {
+    echo json_encode(["error" => "Invalid appId"]);
+    $conn->close();
+    exit;
+}
+
+$sql = "UPDATE apps SET like_num = like_num - 1 WHERE id = $appId AND like_num > 0";
+if ($conn->query($sql) === TRUE) {
+    echo json_encode(["success" => true]);
+} else {
+    echo json_encode(["error" => "Failed to decrease like number"]);
+}
+
+$conn->close();
 ?>

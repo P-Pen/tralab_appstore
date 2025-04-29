@@ -1,5 +1,5 @@
 <?php
-// 获取首页推荐的应用列表
+// 记录页面访问量
 header('Content-Type: application/json');
 
 $servername = "localhost";
@@ -15,17 +15,14 @@ if ($conn->connect_error) {
     die(json_encode(["error" => "Database connection failed"]));
 }
 
-$sql = "SELECT id, name, developer, download_num, like_num FROM apps ORDER BY download_num DESC LIMIT 10";
-$result = $conn->query($sql);
+$page_name = 'screenshot_activity';
+$sql = "INSERT INTO pv_logs (page_name) VALUES ('$page_name')";
 
-$apps = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $apps[] = $row;
-    }
+if ($conn->query($sql) === TRUE) {
+    echo json_encode(["success" => true]);
+} else {
+    echo json_encode(["error" => "Failed to record page view"]);
 }
-
-echo json_encode(["apps" => $apps]);
 
 $conn->close();
 ?>

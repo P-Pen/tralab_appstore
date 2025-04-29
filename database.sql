@@ -1,63 +1,59 @@
--- 数据库初始化脚本
-
-CREATE TABLE devices (
+-- 创建用户表
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    device_id VARCHAR(255) UNIQUE NOT NULL,
-    os_version VARCHAR(50),
-    imei VARCHAR(50),
-    android_id VARCHAR(50),
-    serial VARCHAR(50),
-    app_version_name VARCHAR(50),
-    app_version_code INT,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 插入默认管理员账户
+INSERT INTO users (username, password) 
+VALUES ('admin', '$2y$10$eImiTXuWVxfM37uY4JANjQe5Jx1g8aG/2y5F8k1J8Q9J3X9B5eG6K'); -- 密码为 admin123
+
+-- 创建应用信息表
 CREATE TABLE apps (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    app_id VARCHAR(50) UNIQUE NOT NULL,
     name VARCHAR(255) NOT NULL,
-    category VARCHAR(100),
-    description TEXT,
     developer VARCHAR(255),
-    version VARCHAR(50),
-    size VARCHAR(50),
-    download_url VARCHAR(255),
-    download_count INT DEFAULT 0,
-    like_count INT DEFAULT 0,
+    download_num INT DEFAULT 0,
+    like_num INT DEFAULT 0,
+    pkg_name VARCHAR(255),
+    version_code VARCHAR(50),
+    download_url TEXT,
+    screen_shot_urls TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    is_recommended TINYINT(1) DEFAULT 0
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE app_likes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    app_id VARCHAR(50) NOT NULL,
-    user_id VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (app_id, user_id),
-    FOREIGN KEY (app_id) REFERENCES apps(app_id) ON DELETE CASCADE
-);
-
-CREATE TABLE app_comments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    app_id VARCHAR(50) NOT NULL,
-    user_id VARCHAR(255) NOT NULL,
-    comment TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    rating INT DEFAULT NULL,
-    FOREIGN KEY (app_id) REFERENCES apps(app_id) ON DELETE CASCADE
-);
-
+-- 创建页面访问记录表
 CREATE TABLE pv_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    page VARCHAR(255) NOT NULL,
-    ip_address VARCHAR(50),
-    user_agent TEXT,
+    page_name VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 创建分类表
-CREATE TABLE categories (
+-- 创建版本更新信息表
+CREATE TABLE updates (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL UNIQUE,
+    app_id INT NOT NULL,
+    version_code VARCHAR(50) NOT NULL,
+    update_log TEXT,
+    download_size VARCHAR(50),
+    update_time TIMESTAMP,
+    download_url TEXT,
+    FOREIGN KEY (app_id) REFERENCES apps(id) ON DELETE CASCADE
+);
+
+-- 创建分类信息表
+CREATE TABLE classifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 创建通知信息表
+CREATE TABLE notices (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    banner_img_url TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

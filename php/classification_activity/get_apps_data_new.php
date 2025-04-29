@@ -1,22 +1,42 @@
 <?php
-require_once '../db.php';
+// 获取分类下的所有应用
+header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $classification = $_POST['classification'] ?? null;
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tralab_appstore";
 
-    if (!$classification) {
-        echo json_encode(['status' => 'error', 'message' => 'Missing classification parameter']);
-        exit;
-    }
+// 创建连接
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    $stmt = $pdo->prepare("SELECT id, name, logo_url, download_count AS download_num, like_count AS like_num, 'Android' AS os_type FROM apps WHERE category = :classification ORDER BY created_at DESC LIMIT 10");
-    $stmt->bindValue(':classification', $classification, PDO::PARAM_STR);
-    $stmt->execute();
-
-    $apps = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode(['status' => 'ok', 'apps' => $apps]);
-} else {
-    http_response_code(405);
-    echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+// 检查连接
+if ($conn->connect_error) {
+    die(json_encode(["error" => "Database connection failed"]));
 }
+
+// 获取分类 ID
+$classificationId = isset($_POST['classificationId']) ? intval($_POST['classificationId']) : 0;
+
+if ($classificationId <= 0) {
+    echo json_encode(["error" => "Invalid classification ID"]);
+    $conn->close();
+    exit;
+}
+
+$sql = "SELECT apps.id, apps.name, apps.developer, apps.download_num, apps.like_num FROM apps 
+        JOIN app_classifications ON apps.id = app_classifications.app_id 
+        WHERE app_classifications.classification_id = $classificationId";
+$result = $conn->query($sql);
+
+$apps = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $apps[] = $row;
+    }
+}
+
+echo json_encode(["apps" => $apps]);
+
+$conn->close();
 ?>
