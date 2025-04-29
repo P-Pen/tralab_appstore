@@ -1,23 +1,11 @@
 <?php
-// 管理应用页面
+require_once '../config.php';
+
 session_start();
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header('Location: index.php');
     exit;
-}
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tralab_appstore";
-
-// 创建连接
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// 检查连接
-if ($conn->connect_error) {
-    die("Database connection failed");
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

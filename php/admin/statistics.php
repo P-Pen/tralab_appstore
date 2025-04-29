@@ -1,16 +1,12 @@
 <?php
-// 数据统计页面
+require_once '../config.php';
+
 session_start();
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header('Location: index.php');
     exit;
 }
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tralab_appstore";
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);

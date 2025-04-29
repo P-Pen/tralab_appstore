@@ -1,4 +1,6 @@
 <?php
+require_once '../config.php';
+
 // 管理后台主界面
 session_start();
 

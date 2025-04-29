@@ -1,16 +1,12 @@
 <?php
-// 管理后台入口文件
+require_once '../config.php';
+
 session_start();
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: dashboard.php');
     exit;
 }
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tralab_appstore";
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);

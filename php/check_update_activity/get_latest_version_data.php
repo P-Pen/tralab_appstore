@@ -1,19 +1,8 @@
 <?php
+require_once '../../config.php';
+
 // 获取最新版本数据
 header('Content-Type: application/json');
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tralab_appstore";
-
-// 创建连接
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// 检查连接
-if ($conn->connect_error) {
-    die(json_encode(["error" => "Database connection failed"]));
-}
 
 $sql = "SELECT version_code FROM updates ORDER BY update_time DESC LIMIT 1";
 $result = $conn->query($sql);

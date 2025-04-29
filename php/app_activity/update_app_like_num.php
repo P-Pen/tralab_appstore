@@ -1,11 +1,9 @@
 <?php
+require_once '../config.php';
+
 // 更新应用点赞次数
 header('Content-Type: application/json');
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tralab_appstore";
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);

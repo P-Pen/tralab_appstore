@@ -1,11 +1,8 @@
 <?php
+require_once '../config.php';
+
 // 获取开发者的所有应用
 header('Content-Type: application/json');
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tralab_appstore";
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);
